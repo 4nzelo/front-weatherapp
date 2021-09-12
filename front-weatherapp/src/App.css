@@ -1,7 +1,20 @@
 .App {
-  text-align: center;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 657px;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E,#23A6D5, #23D5AB);
 
 }
+
+.App-card {
+  height: fit-content;
+  border-radius: 1%;
+  background-color: #282c34;
+  padding: 0.15%;
+}
+
 
 #card{
   text-align: center;

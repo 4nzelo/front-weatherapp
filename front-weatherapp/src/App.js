@@ -1,40 +1,40 @@
-import logo from './logo.svg';
-import background from './background.png'
 import React, { useState, useEffect } from 'react';
-import { Card, Button } from 'react-bootstrap';
+import WeatherCard from './WeatherCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
-//8hook que almacena toDos.
-//9-11funciòn que pide por los toDos
+//8hook que almacena cities.
+//9-11funciòn que pide por los cities
 function App() {
-  const [todos, setTodos] = useState();
-  const url = 'http://localhost:4000/api/cities';
+  //const [cities, setCities] = useState();
+  const [humidity, setHumidity] = useState();
+  const [temp, setTemp] = useState();
+  const [speedWind, setSpeedWind] = useState();
+
+  const url = 'http://localhost:4000/api/cities/byCode/200';
   const fetchApi = async () => {
+
     const response = await fetch(url);
+    console.log(response.status);
     const responseJSON = await response.json();
-    setTodos(responseJSON);
+    //humidity = responseJSON['main']['humidity'];
+    setHumidity(responseJSON['main']['humidity']);
+    setTemp(responseJSON['main']['temp']);
+    setSpeedWind(responseJSON['wind']['speed']);
+    //setCities(responseJSON);
+    console.log(responseJSON);
+  
+    
   }
 
   useEffect(() => {
-    fetchApi()
+    fetchApi();
   }, []);
 
   return (
-    <div className="App" >
-      <div id="card">
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src={background} />
-          <Card.Body>
-            <Card.Title>Card Title</Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the bulk of
-              the card's content.
-            </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
-          </Card.Body>
-        </Card>
-      </div>
+    <div className="App">
+      <WeatherCard humidity = { `${humidity}` } temp = { `${temp}` } speedWind = { `${speedWind}` }/>
+      
     </div>
   );
 }
