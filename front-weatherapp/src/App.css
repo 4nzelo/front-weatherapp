@@ -12,9 +12,44 @@
   height: fit-content;
   border-radius: 1%;
   background-color: #282c34;
-  padding: 0.15%;
+ 
+  position: relative;
+  display: inline-block;
 }
 
+span {
+ 
+  text-align: right;
+}
+
+
+.card-title {
+  position: absolute;    
+  top: 4%;           
+  right: 2.1rem;
+  font-size: 150%;
+  font-weight: bolder;
+  color: indigo;
+}
+
+.card-title2 {
+  position: absolute;    
+  top: 9.5%;           
+  right: 5.5rem;
+  font-size: 120%;
+  font-weight: 500;
+  color: indigo;
+}
+
+.card-title3 {
+  position: absolute;    
+  top: 13.5%;           
+  right: 6.7rem;
+  font-size: 270%;
+  font-weight: 700;
+  color: indigo;
+  
+}
 
 #card{
   text-align: center;
